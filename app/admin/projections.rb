@@ -1,6 +1,6 @@
 ActiveAdmin.register Projection do
 
- permit_params :player_id, :source, :year, :ab, :hr, :rbi, :sb, :runs, :avg, :innings_pitched, :wins, :saves, :era, :whip, :strikeouts
+ permit_params :player_id, :source, :year, :at_bats, :home_runs, :runs_batted_in, :stolen_bases, :runs, :avg, :innings_pitched, :wins, :saves, :era, :whip, :strikeouts, :hits, :on_base_percentage, :slugging_percentage, :on_base_plus_slugging
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

@@ -24,10 +24,10 @@ class HistoricalsController < ApplicationController
     @historical.player_id = params[:player_id]
     @historical.source = params[:source]
     @historical.year = params[:year]
-    @historical.ab = params[:ab]
-    @historical.hr = params[:hr]
-    @historical.rbi = params[:rbi]
-    @historical.sb = params[:sb]
+    @historical.at_bats = params[:at_bats]
+    @historical.home_runs = params[:home_runs]
+    @historical.runs_batted_in = params[:runs_batted_in]
+    @historical.stolen_bases = params[:stolen_bases]
     @historical.runs = params[:runs]
     @historical.avg = params[:avg]
     @historical.innings_pitched = params[:innings_pitched]
@@ -36,6 +36,10 @@ class HistoricalsController < ApplicationController
     @historical.era = params[:era]
     @historical.whip = params[:whip]
     @historical.strikeouts = params[:strikeouts]
+    @historical.hits = params[:hits]
+    @historical.on_base_percentage = params[:on_base_percentage]
+    @historical.slugging_percentage = params[:slugging_percentage]
+    @historical.on_base_plus_slugging = params[:on_base_plus_slugging]
 
     save_status = @historical.save
 
@@ -65,10 +69,10 @@ class HistoricalsController < ApplicationController
     @historical.player_id = params[:player_id]
     @historical.source = params[:source]
     @historical.year = params[:year]
-    @historical.ab = params[:ab]
-    @historical.hr = params[:hr]
-    @historical.rbi = params[:rbi]
-    @historical.sb = params[:sb]
+    @historical.at_bats = params[:at_bats]
+    @historical.home_runs = params[:home_runs]
+    @historical.runs_batted_in = params[:runs_batted_in]
+    @historical.stolen_bases = params[:stolen_bases]
     @historical.runs = params[:runs]
     @historical.avg = params[:avg]
     @historical.innings_pitched = params[:innings_pitched]
@@ -77,6 +81,10 @@ class HistoricalsController < ApplicationController
     @historical.era = params[:era]
     @historical.whip = params[:whip]
     @historical.strikeouts = params[:strikeouts]
+    @historical.hits = params[:hits]
+    @historical.on_base_percentage = params[:on_base_percentage]
+    @historical.slugging_percentage = params[:slugging_percentage]
+    @historical.on_base_plus_slugging = params[:on_base_plus_slugging]
 
     save_status = @historical.save
 

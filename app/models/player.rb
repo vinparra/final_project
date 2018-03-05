@@ -1,9 +1,16 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  belongs_to :team
+
   belongs_to :user
 
+  has_many   :tags,
+             :class_name => "Tagging",
+             :dependent => :destroy
+
   has_many   :notes,
+             :class_name => "Comment",
              :dependent => :destroy
 
   has_many   :rankings,
@@ -25,5 +32,9 @@ class Player < ApplicationRecord
              :source => :position
 
   # Validations
+
+  validates :my_rank, :numericality => { :greater_than => 0 }
+
+  validates :name, :presence => true
 
 end

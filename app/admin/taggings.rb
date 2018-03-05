@@ -1,6 +1,6 @@
-ActiveAdmin.register Player do
+ActiveAdmin.register Tagging do
 
- permit_params :name, :team_id, :user_id, :my_rank, :injury_status
+ permit_params :player_id, :tag_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

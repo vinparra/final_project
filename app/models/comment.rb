@@ -1,4 +1,4 @@
-class Note < ApplicationRecord
+class Comment < ApplicationRecord
   # Direct associations
 
   belongs_to :player

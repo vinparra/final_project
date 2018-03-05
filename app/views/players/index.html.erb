@@ -14,25 +14,18 @@
   </div>
 
 <div class="form-group">
-  <%= f.label :position_id, "Position" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :position_id_gteq, :class => "form-control", :placeholder => "Position greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :position_id_lteq, :class => "form-control", :placeholder => "Position less than or equal to" %>
-    </div>
+    <%= f.label :injury_status_cont, "Injury status contains" %>
+    <%= f.text_field :injury_status_cont, :class => "form-control", :placeholder => "Injury status contains" %>
   </div>
-</div>
 
 <div class="form-group">
-  <%= f.label :team_id, "Team" %>
+  <%= f.label :my_rank, "My rank" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :team_id_gteq, :class => "form-control", :placeholder => "Team greater than or equal to" %>
+      <%= f.text_field :my_rank_gteq, :class => "form-control", :placeholder => "My rank greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :team_id_lteq, :class => "form-control", :placeholder => "Team less than or equal to" %>
+      <%= f.text_field :my_rank_lteq, :class => "form-control", :placeholder => "My rank less than or equal to" %>
     </div>
   </div>
 </div>
@@ -83,6 +76,11 @@
     </div>
 
 <div class="form-group">
+      <%= f.label :team_name_cont, "Team name contains" %>
+      <%= f.text_field :team_name_cont, :class => "form-control", :placeholder => "Team name contains" %>
+    </div>
+
+<div class="form-group">
       <%= f.label :positions_title_cont, "Position title contains" %>
       <%= f.text_field :positions_title_cont, :class => "form-control", :placeholder => "Position title contains" %>
     </div>
@@ -103,16 +101,22 @@
       <tr>
         <th>Name</th>
         <th>Team</th>
-        <th>Position</th>
         <th>User</th>
+        <th>My rank</th>
+        <th>Injury status</th>
         <th>Actions</th>
       </tr>
 
       <% @players.each do |player| %>
       <tr>
         <td><%= player.name %></td>
-        <td><%= player.team_id %></td>
-        <td><%= player.position_id %></td>
+        <td>
+          <% if player.team.present? %>
+            <a href="/teams/<%= player.team.id %>">
+              <%= player.team.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <% if player.user.present? %>
             <a href="/users/<%= player.user.id %>">
@@ -120,6 +124,8 @@
             </a>
           <% end %>
         </td>
+        <td><%= player.my_rank %></td>
+        <td><%= player.injury_status %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
           

@@ -33,20 +33,29 @@
           Team
         </label>
 
-        <input type="text" id="team_id" name="team_id" placeholder="Team" class="form-control" value="<%= @player.team_id %>">
+        <%= select_tag(:team_id, options_from_collection_for_select(Team.all, :id, :name, @player.team_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for position_id -->
+      
+      
+
+      <!-- Label and input for my_rank -->
       <div class="form-group">
-        <label for="position_id" class="control-label">
-          Position
+        <label for="my_rank" class="control-label">
+          My rank
         </label>
 
-        <input type="text" id="position_id" name="position_id" placeholder="Position" class="form-control" value="<%= @player.position_id %>">
+        <input type="text" id="my_rank" name="my_rank" placeholder="My rank" class="form-control" value="<%= @player.my_rank %>">
       </div>
 
-      
-      
+      <!-- Label and input for injury_status -->
+      <div class="form-group">
+        <label for="injury_status" class="control-label">
+          Injury status
+        </label>
+
+        <input type="text" id="injury_status" name="injury_status" placeholder="Injury status" class="form-control" value="<%= @player.injury_status %>">
+      </div>
 
       <button class="btn btn-warning">
         Update Player

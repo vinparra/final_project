@@ -9,6 +9,54 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+  <%= f.label :on_base_plus_slugging, "On base plus slugging" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :on_base_plus_slugging_gteq, :class => "form-control", :placeholder => "On base plus slugging greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :on_base_plus_slugging_lteq, :class => "form-control", :placeholder => "On base plus slugging less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :slugging_percentage, "Slugging percentage" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :slugging_percentage_gteq, :class => "form-control", :placeholder => "Slugging percentage greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :slugging_percentage_lteq, :class => "form-control", :placeholder => "Slugging percentage less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :on_base_percentage, "On base percentage" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :on_base_percentage_gteq, :class => "form-control", :placeholder => "On base percentage greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :on_base_percentage_lteq, :class => "form-control", :placeholder => "On base percentage less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :hits, "Hits" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :hits_gteq, :class => "form-control", :placeholder => "Hits greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :hits_lteq, :class => "form-control", :placeholder => "Hits less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
   <%= f.label :strikeouts, "Strikeouts" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -105,49 +153,49 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :sb, "Sb" %>
+  <%= f.label :stolen_bases, "Stolen bases" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :sb_gteq, :class => "form-control", :placeholder => "Sb greater than or equal to" %>
+      <%= f.text_field :stolen_bases_gteq, :class => "form-control", :placeholder => "Stolen bases greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :sb_lteq, :class => "form-control", :placeholder => "Sb less than or equal to" %>
+      <%= f.text_field :stolen_bases_lteq, :class => "form-control", :placeholder => "Stolen bases less than or equal to" %>
     </div>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :rbi, "Rbi" %>
+  <%= f.label :runs_batted_in, "Runs batted in" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :rbi_gteq, :class => "form-control", :placeholder => "Rbi greater than or equal to" %>
+      <%= f.text_field :runs_batted_in_gteq, :class => "form-control", :placeholder => "Runs batted in greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :rbi_lteq, :class => "form-control", :placeholder => "Rbi less than or equal to" %>
+      <%= f.text_field :runs_batted_in_lteq, :class => "form-control", :placeholder => "Runs batted in less than or equal to" %>
     </div>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :hr, "Hr" %>
+  <%= f.label :home_runs, "Home runs" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :hr_gteq, :class => "form-control", :placeholder => "Hr greater than or equal to" %>
+      <%= f.text_field :home_runs_gteq, :class => "form-control", :placeholder => "Home runs greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :hr_lteq, :class => "form-control", :placeholder => "Hr less than or equal to" %>
+      <%= f.text_field :home_runs_lteq, :class => "form-control", :placeholder => "Home runs less than or equal to" %>
     </div>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :ab, "Ab" %>
+  <%= f.label :at_bats, "At bats" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :ab_gteq, :class => "form-control", :placeholder => "Ab greater than or equal to" %>
+      <%= f.text_field :at_bats_gteq, :class => "form-control", :placeholder => "At bats greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :ab_lteq, :class => "form-control", :placeholder => "Ab less than or equal to" %>
+      <%= f.text_field :at_bats_lteq, :class => "form-control", :placeholder => "At bats less than or equal to" %>
     </div>
   </div>
 </div>
@@ -231,10 +279,10 @@
         <th>Player</th>
         <th>Source</th>
         <th>Year</th>
-        <th>Ab</th>
-        <th>Hr</th>
-        <th>Rbi</th>
-        <th>Sb</th>
+        <th>At bats</th>
+        <th>Home runs</th>
+        <th>Runs batted in</th>
+        <th>Stolen bases</th>
         <th>Runs</th>
         <th>Avg</th>
         <th>Innings pitched</th>
@@ -243,6 +291,10 @@
         <th>Era</th>
         <th>Whip</th>
         <th>Strikeouts</th>
+        <th>Hits</th>
+        <th>On base percentage</th>
+        <th>Slugging percentage</th>
+        <th>On base plus slugging</th>
         <th>Actions</th>
       </tr>
 
@@ -257,10 +309,10 @@
         </td>
         <td><%= historical.source %></td>
         <td><%= historical.year %></td>
-        <td><%= historical.ab %></td>
-        <td><%= historical.hr %></td>
-        <td><%= historical.rbi %></td>
-        <td><%= historical.sb %></td>
+        <td><%= historical.at_bats %></td>
+        <td><%= historical.home_runs %></td>
+        <td><%= historical.runs_batted_in %></td>
+        <td><%= historical.stolen_bases %></td>
         <td><%= historical.runs %></td>
         <td><%= historical.avg %></td>
         <td><%= historical.innings_pitched %></td>
@@ -269,6 +321,10 @@
         <td><%= historical.era %></td>
         <td><%= historical.whip %></td>
         <td><%= historical.strikeouts %></td>
+        <td><%= historical.hits %></td>
+        <td><%= historical.on_base_percentage %></td>
+        <td><%= historical.slugging_percentage %></td>
+        <td><%= historical.on_base_plus_slugging %></td>
         <td>
           <a href="/historicals/<%= historical.id %>" class="btn btn-primary">Show</a>
           <a href="/historicals/<%= historical.id %>/edit" class="btn btn-warning">Edit</a>

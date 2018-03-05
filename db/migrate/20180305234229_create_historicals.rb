@@ -4,10 +4,10 @@ class CreateHistoricals < ActiveRecord::Migration
       t.integer :player_id
       t.string :source
       t.integer :year
-      t.integer :ab
-      t.integer :hr
-      t.integer :rbi
-      t.integer :sb
+      t.integer :at_bats
+      t.integer :home_runs
+      t.integer :runs_batted_in
+      t.integer :stolen_bases
       t.integer :runs
       t.float :avg
       t.float :innings_pitched
@@ -16,6 +16,10 @@ class CreateHistoricals < ActiveRecord::Migration
       t.float :era
       t.float :whip
       t.integer :strikeouts
+      t.integer :hits
+      t.float :on_base_percentage
+      t.float :slugging_percentage
+      t.float :on_base_plus_slugging
 
       t.timestamps
 

@@ -9,10 +9,13 @@
       <dd><%= @player.name %></dd>
 
       <dt>Team</dt>
-      <dd><%= @player.team_id %></dd>
-
-      <dt>Position</dt>
-      <dd><%= @player.position_id %></dd>
+      <dd>
+        <% if @player.team.present? %>
+          <a href="/teams/<%= @player.team_id %>">
+            <%= @player.team.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
       <dd>
@@ -22,6 +25,12 @@
           </a>
         <% end %>
       </dd>
+
+      <dt>My rank</dt>
+      <dd><%= @player.my_rank %></dd>
+
+      <dt>Injury status</dt>
+      <dd><%= @player.injury_status %></dd>
 
     </dl>
 
@@ -149,40 +158,40 @@
         <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="">
       </div>
 
-      <!-- Label and input for ab -->
+      <!-- Label and input for at_bats -->
       <div class="form-group">
-        <label for="ab" class="control-label">
-          Ab
+        <label for="at_bats" class="control-label">
+          At bats
         </label>
 
-        <input type="text" id="ab" name="ab" placeholder="Ab" class="form-control" value="">
+        <input type="text" id="at_bats" name="at_bats" placeholder="At bats" class="form-control" value="">
       </div>
 
-      <!-- Label and input for hr -->
+      <!-- Label and input for home_runs -->
       <div class="form-group">
-        <label for="hr" class="control-label">
-          Hr
+        <label for="home_runs" class="control-label">
+          Home runs
         </label>
 
-        <input type="text" id="hr" name="hr" placeholder="Hr" class="form-control" value="">
+        <input type="text" id="home_runs" name="home_runs" placeholder="Home runs" class="form-control" value="">
       </div>
 
-      <!-- Label and input for rbi -->
+      <!-- Label and input for runs_batted_in -->
       <div class="form-group">
-        <label for="rbi" class="control-label">
-          Rbi
+        <label for="runs_batted_in" class="control-label">
+          Runs batted in
         </label>
 
-        <input type="text" id="rbi" name="rbi" placeholder="Rbi" class="form-control" value="">
+        <input type="text" id="runs_batted_in" name="runs_batted_in" placeholder="Runs batted in" class="form-control" value="">
       </div>
 
-      <!-- Label and input for sb -->
+      <!-- Label and input for stolen_bases -->
       <div class="form-group">
-        <label for="sb" class="control-label">
-          Sb
+        <label for="stolen_bases" class="control-label">
+          Stolen bases
         </label>
 
-        <input type="text" id="sb" name="sb" placeholder="Sb" class="form-control" value="">
+        <input type="text" id="stolen_bases" name="stolen_bases" placeholder="Stolen bases" class="form-control" value="">
       </div>
 
       <!-- Label and input for runs -->
@@ -255,6 +264,42 @@
         </label>
 
         <input type="text" id="strikeouts" name="strikeouts" placeholder="Strikeouts" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for hits -->
+      <div class="form-group">
+        <label for="hits" class="control-label">
+          Hits
+        </label>
+
+        <input type="text" id="hits" name="hits" placeholder="Hits" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for on_base_percentage -->
+      <div class="form-group">
+        <label for="on_base_percentage" class="control-label">
+          On base percentage
+        </label>
+
+        <input type="text" id="on_base_percentage" name="on_base_percentage" placeholder="On base percentage" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for slugging_percentage -->
+      <div class="form-group">
+        <label for="slugging_percentage" class="control-label">
+          Slugging percentage
+        </label>
+
+        <input type="text" id="slugging_percentage" name="slugging_percentage" placeholder="Slugging percentage" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for on_base_plus_slugging -->
+      <div class="form-group">
+        <label for="on_base_plus_slugging" class="control-label">
+          On base plus slugging
+        </label>
+
+        <input type="text" id="on_base_plus_slugging" name="on_base_plus_slugging" placeholder="On base plus slugging" class="form-control" value="">
       </div>
 
       <button class="btn btn-block btn-success">
@@ -320,40 +365,40 @@
         <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="">
       </div>
 
-      <!-- Label and input for ab -->
+      <!-- Label and input for at_bats -->
       <div class="form-group">
-        <label for="ab" class="control-label">
-          Ab
+        <label for="at_bats" class="control-label">
+          At bats
         </label>
 
-        <input type="text" id="ab" name="ab" placeholder="Ab" class="form-control" value="">
+        <input type="text" id="at_bats" name="at_bats" placeholder="At bats" class="form-control" value="">
       </div>
 
-      <!-- Label and input for hr -->
+      <!-- Label and input for home_runs -->
       <div class="form-group">
-        <label for="hr" class="control-label">
-          Hr
+        <label for="home_runs" class="control-label">
+          Home runs
         </label>
 
-        <input type="text" id="hr" name="hr" placeholder="Hr" class="form-control" value="">
+        <input type="text" id="home_runs" name="home_runs" placeholder="Home runs" class="form-control" value="">
       </div>
 
-      <!-- Label and input for rbi -->
+      <!-- Label and input for runs_batted_in -->
       <div class="form-group">
-        <label for="rbi" class="control-label">
-          Rbi
+        <label for="runs_batted_in" class="control-label">
+          Runs batted in
         </label>
 
-        <input type="text" id="rbi" name="rbi" placeholder="Rbi" class="form-control" value="">
+        <input type="text" id="runs_batted_in" name="runs_batted_in" placeholder="Runs batted in" class="form-control" value="">
       </div>
 
-      <!-- Label and input for sb -->
+      <!-- Label and input for stolen_bases -->
       <div class="form-group">
-        <label for="sb" class="control-label">
-          Sb
+        <label for="stolen_bases" class="control-label">
+          Stolen bases
         </label>
 
-        <input type="text" id="sb" name="sb" placeholder="Sb" class="form-control" value="">
+        <input type="text" id="stolen_bases" name="stolen_bases" placeholder="Stolen bases" class="form-control" value="">
       </div>
 
       <!-- Label and input for runs -->
@@ -426,6 +471,42 @@
         </label>
 
         <input type="text" id="strikeouts" name="strikeouts" placeholder="Strikeouts" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for hits -->
+      <div class="form-group">
+        <label for="hits" class="control-label">
+          Hits
+        </label>
+
+        <input type="text" id="hits" name="hits" placeholder="Hits" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for on_base_percentage -->
+      <div class="form-group">
+        <label for="on_base_percentage" class="control-label">
+          On base percentage
+        </label>
+
+        <input type="text" id="on_base_percentage" name="on_base_percentage" placeholder="On base percentage" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for slugging_percentage -->
+      <div class="form-group">
+        <label for="slugging_percentage" class="control-label">
+          Slugging percentage
+        </label>
+
+        <input type="text" id="slugging_percentage" name="slugging_percentage" placeholder="Slugging percentage" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for on_base_plus_slugging -->
+      <div class="form-group">
+        <label for="on_base_plus_slugging" class="control-label">
+          On base plus slugging
+        </label>
+
+        <input type="text" id="on_base_plus_slugging" name="on_base_plus_slugging" placeholder="On base plus slugging" class="form-control" value="">
       </div>
 
       <button class="btn btn-block btn-success">
@@ -572,19 +653,19 @@
         Notes
       </li>
 
-      <% @player.notes.each do |note| %>
+      <% @player.notes.each do |comment| %>
         <li class="list-group-item">
-          <a href="/notes/<%= note.id %>">
-            <%= note.player_id %>
+          <a href="/comments/<%= comment.id %>">
+            <%= comment.player_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/notes/<%= note.id %>" class="btn btn-primary">
+            <a href="/comments/<%= comment.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/notes/<%= note.id %>/edit" class="btn btn-warning">
+            <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
-            <a href="/delete_note/<%= note.id %>" class="btn btn-danger" rel="nofollow">
+            <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
@@ -592,7 +673,7 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_note" method="post">
+        <form action="/create_comment" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -605,11 +686,65 @@
           Comment
         </label>
 
-        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="">
+        <textarea id="comment" name="comment" placeholder="Comment" class="form-control" rows="3"></textarea>
       </div>
 
       <button class="btn btn-block btn-success">
-        Create Note
+        Create Comment
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many tags -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Tags
+      </li>
+
+      <% @player.tags.each do |tagging| %>
+        <li class="list-group-item">
+          <a href="/taggings/<%= tagging.id %>">
+            <%= tagging.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/taggings/<%= tagging.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/taggings/<%= tagging.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_tagging/<%= tagging.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_tagging" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for tag_id -->
+      <div class="form-group">
+        <label for="tag_id" class="control-label">
+          Tag
+        </label>
+
+        <%= select_tag(:tag_id, options_from_collection_for_select(Tag.all, :id, :tag), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Tagging
       </button>
     </form>
       </li>

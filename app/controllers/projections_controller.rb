@@ -24,10 +24,10 @@ class ProjectionsController < ApplicationController
     @projection.player_id = params[:player_id]
     @projection.source = params[:source]
     @projection.year = params[:year]
-    @projection.ab = params[:ab]
-    @projection.hr = params[:hr]
-    @projection.rbi = params[:rbi]
-    @projection.sb = params[:sb]
+    @projection.at_bats = params[:at_bats]
+    @projection.home_runs = params[:home_runs]
+    @projection.runs_batted_in = params[:runs_batted_in]
+    @projection.stolen_bases = params[:stolen_bases]
     @projection.runs = params[:runs]
     @projection.avg = params[:avg]
     @projection.innings_pitched = params[:innings_pitched]
@@ -36,6 +36,10 @@ class ProjectionsController < ApplicationController
     @projection.era = params[:era]
     @projection.whip = params[:whip]
     @projection.strikeouts = params[:strikeouts]
+    @projection.hits = params[:hits]
+    @projection.on_base_percentage = params[:on_base_percentage]
+    @projection.slugging_percentage = params[:slugging_percentage]
+    @projection.on_base_plus_slugging = params[:on_base_plus_slugging]
 
     save_status = @projection.save
 
@@ -65,10 +69,10 @@ class ProjectionsController < ApplicationController
     @projection.player_id = params[:player_id]
     @projection.source = params[:source]
     @projection.year = params[:year]
-    @projection.ab = params[:ab]
-    @projection.hr = params[:hr]
-    @projection.rbi = params[:rbi]
-    @projection.sb = params[:sb]
+    @projection.at_bats = params[:at_bats]
+    @projection.home_runs = params[:home_runs]
+    @projection.runs_batted_in = params[:runs_batted_in]
+    @projection.stolen_bases = params[:stolen_bases]
     @projection.runs = params[:runs]
     @projection.avg = params[:avg]
     @projection.innings_pitched = params[:innings_pitched]
@@ -77,6 +81,10 @@ class ProjectionsController < ApplicationController
     @projection.era = params[:era]
     @projection.whip = params[:whip]
     @projection.strikeouts = params[:strikeouts]
+    @projection.hits = params[:hits]
+    @projection.on_base_percentage = params[:on_base_percentage]
+    @projection.slugging_percentage = params[:slugging_percentage]
+    @projection.on_base_plus_slugging = params[:on_base_plus_slugging]
 
     save_status = @projection.save
 

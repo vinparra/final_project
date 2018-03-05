@@ -1,7 +1,7 @@
-class Team < ApplicationRecord
+class Tag < ApplicationRecord
   # Direct associations
 
-  has_many   :players,
+  has_many   :taggings,
              :dependent => :destroy
 
   # Indirect associations
