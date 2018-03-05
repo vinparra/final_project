@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Eligibility resource:
+  # CREATE
+  get "/eligibilities/new", :controller => "eligibilities", :action => "new"
+  post "/create_eligibility", :controller => "eligibilities", :action => "create"
+
+  # READ
+  get "/eligibilities", :controller => "eligibilities", :action => "index"
+  get "/eligibilities/:id", :controller => "eligibilities", :action => "show"
+
+  # UPDATE
+  get "/eligibilities/:id/edit", :controller => "eligibilities", :action => "edit"
+  post "/update_eligibility/:id", :controller => "eligibilities", :action => "update"
+
+  # DELETE
+  get "/delete_eligibility/:id", :controller => "eligibilities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Position resource:
   # CREATE
   get "/positions/new", :controller => "positions", :action => "new"
