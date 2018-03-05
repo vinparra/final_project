@@ -26,18 +26,6 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :team_id, "Team" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :team_id_gteq, :class => "form-control", :placeholder => "Team greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :team_id_lteq, :class => "form-control", :placeholder => "Team less than or equal to" %>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -83,6 +71,11 @@
     </div>
 
 <div class="form-group">
+      <%= f.label :team_name_cont, "Team name contains" %>
+      <%= f.text_field :team_name_cont, :class => "form-control", :placeholder => "Team name contains" %>
+    </div>
+
+<div class="form-group">
       <%= f.label :positions_title_cont, "Position title contains" %>
       <%= f.text_field :positions_title_cont, :class => "form-control", :placeholder => "Position title contains" %>
     </div>
@@ -111,7 +104,13 @@
       <% @players.each do |player| %>
       <tr>
         <td><%= player.name %></td>
-        <td><%= player.team_id %></td>
+        <td>
+          <% if player.team.present? %>
+            <a href="/teams/<%= player.team.id %>">
+              <%= player.team.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= player.position_id %></td>
         <td>
           <% if player.user.present? %>

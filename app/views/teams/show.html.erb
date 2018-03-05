@@ -23,3 +23,69 @@
     </div>
   </div>
 </div>
+
+<!-- A Team has many players -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Players
+      </li>
+
+      <% @team.players.each do |player| %>
+        <li class="list-group-item">
+          <a href="/players/<%= player.id %>">
+            <%= player.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/players/<%= player.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/players/<%= player.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_player/<%= player.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_player" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for team_id -->
+      <input type="hidden" name="team_id" value="<%= @team.id %>">
+
+      <!-- Label and input for position_id -->
+      <div class="form-group">
+        <label for="position_id" class="control-label">
+          Position
+        </label>
+
+        <input type="text" id="position_id" name="position_id" placeholder="Position" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Player
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>

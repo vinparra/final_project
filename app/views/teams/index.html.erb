@@ -53,7 +53,10 @@
           });
       </script>
 
-        
+        <div class="form-group">
+      <%= f.label :players_name_cont, "Player name contains" %>
+      <%= f.text_field :players_name_cont, :class => "form-control", :placeholder => "Player name contains" %>
+    </div>
 
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
