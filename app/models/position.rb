@@ -6,6 +6,10 @@ class Position < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :players,
+             :through => :eligibilities,
+             :source => :player
+
   # Validations
 
 end
