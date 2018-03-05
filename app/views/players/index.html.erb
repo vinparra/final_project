@@ -21,7 +21,13 @@
         <td><%= player.name %></td>
         <td><%= player.team_id %></td>
         <td><%= player.position_id %></td>
-        <td><%= player.user.email %></td>
+        <td>
+          <% if player.user.present? %>
+            <a href="/users/<%= player.user.id %>">
+              <%= player.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
           

@@ -29,7 +29,13 @@
 
       <% @projections.each do |projection| %>
       <tr>
-        <td><%= projection.player.name %></td>
+        <td>
+          <% if projection.player.present? %>
+            <a href="/players/<%= projection.player.id %>">
+              <%= projection.player.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= projection.source %></td>
         <td><%= projection.year %></td>
         <td><%= projection.ab %></td>

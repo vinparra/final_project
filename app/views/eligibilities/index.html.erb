@@ -16,8 +16,20 @@
 
       <% @eligibilities.each do |eligibility| %>
       <tr>
-        <td><%= eligibility.player.name %></td>
-        <td><%= eligibility.position.title %></td>
+        <td>
+          <% if eligibility.player.present? %>
+            <a href="/players/<%= eligibility.player.id %>">
+              <%= eligibility.player.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if eligibility.position.present? %>
+            <a href="/positions/<%= eligibility.position.id %>">
+              <%= eligibility.position.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/eligibilities/<%= eligibility.id %>" class="btn btn-primary">Show</a>
           <a href="/eligibilities/<%= eligibility.id %>/edit" class="btn btn-warning">Edit</a>

@@ -15,7 +15,13 @@
       <dd><%= @player.position_id %></dd>
 
       <dt>User</dt>
-      <dd><%= @player.user_id %></dd>
+      <dd>
+        <% if @player.user.present? %>
+          <a href="/users/<%= @player.user_id %>">
+            <%= @player.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

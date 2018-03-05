@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Player</dt>
-      <dd><%= @projection.player_id %></dd>
+      <dd>
+        <% if @projection.player.present? %>
+          <a href="/players/<%= @projection.player_id %>">
+            <%= @projection.player.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Source</dt>
       <dd><%= @projection.source %></dd>

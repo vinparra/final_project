@@ -29,7 +29,13 @@
 
       <% @historicals.each do |historical| %>
       <tr>
-        <td><%= historical.player.name %></td>
+        <td>
+          <% if historical.player.present? %>
+            <a href="/players/<%= historical.player.id %>">
+              <%= historical.player.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= historical.source %></td>
         <td><%= historical.year %></td>
         <td><%= historical.ab %></td>

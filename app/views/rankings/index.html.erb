@@ -24,7 +24,13 @@
 
       <% @rankings.each do |ranking| %>
       <tr>
-        <td><%= ranking.player.name %></td>
+        <td>
+          <% if ranking.player.present? %>
+            <a href="/players/<%= ranking.player.id %>">
+              <%= ranking.player.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= ranking.source %></td>
         <td><%= ranking.overall_rank %></td>
         <td><%= ranking.position_rank %></td>

@@ -16,7 +16,13 @@
 
       <% @notes.each do |note| %>
       <tr>
-        <td><%= note.player.name %></td>
+        <td>
+          <% if note.player.present? %>
+            <a href="/players/<%= note.player.id %>">
+              <%= note.player.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= note.comment %></td>
         <td>
           <a href="/notes/<%= note.id %>" class="btn btn-primary">Show</a>
