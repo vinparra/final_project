@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  has_many   :notes,
+             :dependent => :destroy
+
   has_many   :rankings,
              :dependent => :destroy
 
