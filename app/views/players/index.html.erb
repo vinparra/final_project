@@ -24,8 +24,11 @@
         <td><%= player.user.email %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
-          <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_player/<%= player.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == player.user %>
+            <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_player/<%= player.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
