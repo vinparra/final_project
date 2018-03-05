@@ -1,6 +1,6 @@
 class EligibilitiesController < ApplicationController
   def index
-    @eligibilities = Eligibility.all
+    @eligibilities = Eligibility.page(params[:page]).per(10)
 
     render("eligibilities/index.html.erb")
   end

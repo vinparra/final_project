@@ -1,6 +1,6 @@
 class ProjectionsController < ApplicationController
   def index
-    @projections = Projection.all
+    @projections = Projection.page(params[:page]).per(10)
 
     render("projections/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class HistoricalsController < ApplicationController
   def index
-    @historicals = Historical.all
+    @historicals = Historical.page(params[:page]).per(10)
 
     render("historicals/index.html.erb")
   end

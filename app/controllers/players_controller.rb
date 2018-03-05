@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
   end
 
   def index
-    @players = Player.all
+    @players = Player.page(params[:page]).per(10)
 
     render("players/index.html.erb")
   end
