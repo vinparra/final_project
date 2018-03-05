@@ -24,7 +24,7 @@
 
       <% @rankings.each do |ranking| %>
       <tr>
-        <td><%= ranking.player_id %></td>
+        <td><%= ranking.player.name %></td>
         <td><%= ranking.source %></td>
         <td><%= ranking.overall_rank %></td>
         <td><%= ranking.position_rank %></td>
