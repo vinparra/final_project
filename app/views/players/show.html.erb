@@ -32,3 +32,189 @@
     </div>
   </div>
 </div>
+
+<!-- A Player has many eligibilities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Eligibilities
+      </li>
+
+      <% @player.eligibilities.each do |eligibility| %>
+        <li class="list-group-item">
+          <a href="/eligibilities/<%= eligibility.id %>">
+            <%= eligibility.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/eligibilities/<%= eligibility.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/eligibilities/<%= eligibility.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_eligibility/<%= eligibility.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many historicals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Historicals
+      </li>
+
+      <% @player.historicals.each do |historical| %>
+        <li class="list-group-item">
+          <a href="/historicals/<%= historical.id %>">
+            <%= historical.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/historicals/<%= historical.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/historicals/<%= historical.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_historical/<%= historical.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many projections -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Projections
+      </li>
+
+      <% @player.projections.each do |projection| %>
+        <li class="list-group-item">
+          <a href="/projections/<%= projection.id %>">
+            <%= projection.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/projections/<%= projection.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/projections/<%= projection.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_projection/<%= projection.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many rankings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Rankings
+      </li>
+
+      <% @player.rankings.each do |ranking| %>
+        <li class="list-group-item">
+          <a href="/rankings/<%= ranking.id %>">
+            <%= ranking.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rankings/<%= ranking.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rankings/<%= ranking.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_ranking/<%= ranking.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many notes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Notes
+      </li>
+
+      <% @player.notes.each do |note| %>
+        <li class="list-group-item">
+          <a href="/notes/<%= note.id %>">
+            <%= note.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/notes/<%= note.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/notes/<%= note.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_note/<%= note.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many positions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Positions
+      </li>
+
+      <% @player.positions.each do |position| %>
+        <li class="list-group-item">
+          <a href="/positions/<%= position.id %>">
+            <%= position.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/positions/<%= position.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/positions/<%= position.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_position/<%= position.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Position has many eligibilities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Eligibilities
+      </li>
+
+      <% @position.eligibilities.each do |eligibility| %>
+        <li class="list-group-item">
+          <a href="/eligibilities/<%= eligibility.id %>">
+            <%= eligibility.player_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/eligibilities/<%= eligibility.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/eligibilities/<%= eligibility.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_eligibility/<%= eligibility.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Position has many players -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Players
+      </li>
+
+      <% @position.players.each do |player| %>
+        <li class="list-group-item">
+          <a href="/players/<%= player.id %>">
+            <%= player.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/players/<%= player.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/players/<%= player.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_player/<%= player.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
