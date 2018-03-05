@@ -51,6 +51,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_eligibility" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <div class="form-group">
+        <label for="player_id" class="control-label">
+          Player
+        </label>
+
+        <%= select_tag(:player_id, options_from_collection_for_select(Player.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for position_id -->
+      <input type="hidden" name="position_id" value="<%= @position.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Eligibility
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

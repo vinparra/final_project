@@ -62,6 +62,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_eligibility" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for position_id -->
+      <div class="form-group">
+        <label for="position_id" class="control-label">
+          Position
+        </label>
+
+        <%= select_tag(:position_id, options_from_collection_for_select(Position.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Eligibility
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -93,6 +116,146 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_historical" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for source -->
+      <div class="form-group">
+        <label for="source" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source" name="source" placeholder="Source" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for ab -->
+      <div class="form-group">
+        <label for="ab" class="control-label">
+          Ab
+        </label>
+
+        <input type="text" id="ab" name="ab" placeholder="Ab" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for hr -->
+      <div class="form-group">
+        <label for="hr" class="control-label">
+          Hr
+        </label>
+
+        <input type="text" id="hr" name="hr" placeholder="Hr" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rbi -->
+      <div class="form-group">
+        <label for="rbi" class="control-label">
+          Rbi
+        </label>
+
+        <input type="text" id="rbi" name="rbi" placeholder="Rbi" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for sb -->
+      <div class="form-group">
+        <label for="sb" class="control-label">
+          Sb
+        </label>
+
+        <input type="text" id="sb" name="sb" placeholder="Sb" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for runs -->
+      <div class="form-group">
+        <label for="runs" class="control-label">
+          Runs
+        </label>
+
+        <input type="text" id="runs" name="runs" placeholder="Runs" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for avg -->
+      <div class="form-group">
+        <label for="avg" class="control-label">
+          Avg
+        </label>
+
+        <input type="text" id="avg" name="avg" placeholder="Avg" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for innings_pitched -->
+      <div class="form-group">
+        <label for="innings_pitched" class="control-label">
+          Innings pitched
+        </label>
+
+        <input type="text" id="innings_pitched" name="innings_pitched" placeholder="Innings pitched" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for wins -->
+      <div class="form-group">
+        <label for="wins" class="control-label">
+          Wins
+        </label>
+
+        <input type="text" id="wins" name="wins" placeholder="Wins" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for saves -->
+      <div class="form-group">
+        <label for="saves" class="control-label">
+          Saves
+        </label>
+
+        <input type="text" id="saves" name="saves" placeholder="Saves" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for era -->
+      <div class="form-group">
+        <label for="era" class="control-label">
+          Era
+        </label>
+
+        <input type="text" id="era" name="era" placeholder="Era" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for whip -->
+      <div class="form-group">
+        <label for="whip" class="control-label">
+          Whip
+        </label>
+
+        <input type="text" id="whip" name="whip" placeholder="Whip" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for strikeouts -->
+      <div class="form-group">
+        <label for="strikeouts" class="control-label">
+          Strikeouts
+        </label>
+
+        <input type="text" id="strikeouts" name="strikeouts" placeholder="Strikeouts" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Historical
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -124,6 +287,146 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_projection" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for source -->
+      <div class="form-group">
+        <label for="source" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source" name="source" placeholder="Source" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for ab -->
+      <div class="form-group">
+        <label for="ab" class="control-label">
+          Ab
+        </label>
+
+        <input type="text" id="ab" name="ab" placeholder="Ab" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for hr -->
+      <div class="form-group">
+        <label for="hr" class="control-label">
+          Hr
+        </label>
+
+        <input type="text" id="hr" name="hr" placeholder="Hr" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rbi -->
+      <div class="form-group">
+        <label for="rbi" class="control-label">
+          Rbi
+        </label>
+
+        <input type="text" id="rbi" name="rbi" placeholder="Rbi" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for sb -->
+      <div class="form-group">
+        <label for="sb" class="control-label">
+          Sb
+        </label>
+
+        <input type="text" id="sb" name="sb" placeholder="Sb" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for runs -->
+      <div class="form-group">
+        <label for="runs" class="control-label">
+          Runs
+        </label>
+
+        <input type="text" id="runs" name="runs" placeholder="Runs" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for avg -->
+      <div class="form-group">
+        <label for="avg" class="control-label">
+          Avg
+        </label>
+
+        <input type="text" id="avg" name="avg" placeholder="Avg" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for innings_pitched -->
+      <div class="form-group">
+        <label for="innings_pitched" class="control-label">
+          Innings pitched
+        </label>
+
+        <input type="text" id="innings_pitched" name="innings_pitched" placeholder="Innings pitched" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for wins -->
+      <div class="form-group">
+        <label for="wins" class="control-label">
+          Wins
+        </label>
+
+        <input type="text" id="wins" name="wins" placeholder="Wins" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for saves -->
+      <div class="form-group">
+        <label for="saves" class="control-label">
+          Saves
+        </label>
+
+        <input type="text" id="saves" name="saves" placeholder="Saves" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for era -->
+      <div class="form-group">
+        <label for="era" class="control-label">
+          Era
+        </label>
+
+        <input type="text" id="era" name="era" placeholder="Era" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for whip -->
+      <div class="form-group">
+        <label for="whip" class="control-label">
+          Whip
+        </label>
+
+        <input type="text" id="whip" name="whip" placeholder="Whip" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for strikeouts -->
+      <div class="form-group">
+        <label for="strikeouts" class="control-label">
+          Strikeouts
+        </label>
+
+        <input type="text" id="strikeouts" name="strikeouts" placeholder="Strikeouts" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Projection
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -155,6 +458,101 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ranking" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for source -->
+      <div class="form-group">
+        <label for="source" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source" name="source" placeholder="Source" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for overall_rank -->
+      <div class="form-group">
+        <label for="overall_rank" class="control-label">
+          Overall rank
+        </label>
+
+        <input type="text" id="overall_rank" name="overall_rank" placeholder="Overall rank" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for position_rank -->
+      <div class="form-group">
+        <label for="position_rank" class="control-label">
+          Position rank
+        </label>
+
+        <input type="text" id="position_rank" name="position_rank" placeholder="Position rank" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for dollar_value -->
+      <div class="form-group">
+        <label for="dollar_value" class="control-label">
+          Dollar value
+        </label>
+
+        <input type="text" id="dollar_value" name="dollar_value" placeholder="Dollar value" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rank_best -->
+      <div class="form-group">
+        <label for="rank_best" class="control-label">
+          Rank best
+        </label>
+
+        <input type="text" id="rank_best" name="rank_best" placeholder="Rank best" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rank_worst -->
+      <div class="form-group">
+        <label for="rank_worst" class="control-label">
+          Rank worst
+        </label>
+
+        <input type="text" id="rank_worst" name="rank_worst" placeholder="Rank worst" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rank_average -->
+      <div class="form-group">
+        <label for="rank_average" class="control-label">
+          Rank average
+        </label>
+
+        <input type="text" id="rank_average" name="rank_average" placeholder="Rank average" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for rank_std_dev -->
+      <div class="form-group">
+        <label for="rank_std_dev" class="control-label">
+          Rank std dev
+        </label>
+
+        <input type="text" id="rank_std_dev" name="rank_std_dev" placeholder="Rank std dev" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for avg_draft_position -->
+      <div class="form-group">
+        <label for="avg_draft_position" class="control-label">
+          Avg draft position
+        </label>
+
+        <input type="text" id="avg_draft_position" name="avg_draft_position" placeholder="Avg draft position" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Ranking
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -186,6 +584,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_note" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment" name="comment" placeholder="Comment" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Note
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

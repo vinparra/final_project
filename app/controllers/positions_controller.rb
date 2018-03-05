@@ -6,6 +6,7 @@ class PositionsController < ApplicationController
   end
 
   def show
+    @eligibility = Eligibility.new
     @position = Position.find(params[:id])
 
     render("positions/show.html.erb")

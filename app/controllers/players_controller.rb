@@ -16,6 +16,11 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @note = Note.new
+    @ranking = Ranking.new
+    @projection = Projection.new
+    @historical = Historical.new
+    @eligibility = Eligibility.new
     @player = Player.find(params[:id])
 
     render("players/show.html.erb")
