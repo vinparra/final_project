@@ -29,7 +29,7 @@
 
       <% @historicals.each do |historical| %>
       <tr>
-        <td><%= historical.player_id %></td>
+        <td><%= historical.player.name %></td>
         <td><%= historical.source %></td>
         <td><%= historical.year %></td>
         <td><%= historical.ab %></td>
