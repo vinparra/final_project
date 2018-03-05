@@ -21,7 +21,7 @@
         <td><%= player.name %></td>
         <td><%= player.team_id %></td>
         <td><%= player.position_id %></td>
-        <td><%= player.user_id %></td>
+        <td><%= player.user.email %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>
           <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit</a>
