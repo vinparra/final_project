@@ -1,6 +1,7 @@
 class RankingsController < ApplicationController
   def index
-    @rankings = Ranking.page(params[:page]).per(10)
+    @q = Ranking.ransack(params[:q])
+    @rankings = @q.result(:distinct => true).includes(:player).page(params[:page]).per(10)
 
     render("rankings/index.html.erb")
   end

@@ -3,6 +3,158 @@
     Rankings
     <a href="/rankings/new" class="btn btn-lg btn-success">New Ranking</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "rankings_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+  <%= f.label :avg_draft_position, "Avg draft position" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :avg_draft_position_gteq, :class => "form-control", :placeholder => "Avg draft position greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :avg_draft_position_lteq, :class => "form-control", :placeholder => "Avg draft position less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :rank_std_dev, "Rank std dev" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :rank_std_dev_gteq, :class => "form-control", :placeholder => "Rank std dev greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :rank_std_dev_lteq, :class => "form-control", :placeholder => "Rank std dev less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :rank_average, "Rank average" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :rank_average_gteq, :class => "form-control", :placeholder => "Rank average greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :rank_average_lteq, :class => "form-control", :placeholder => "Rank average less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :rank_worst_cont, "Rank worst contains" %>
+    <%= f.text_field :rank_worst_cont, :class => "form-control", :placeholder => "Rank worst contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :rank_best, "Rank best" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :rank_best_gteq, :class => "form-control", :placeholder => "Rank best greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :rank_best_lteq, :class => "form-control", :placeholder => "Rank best less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :dollar_value, "Dollar value" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :dollar_value_gteq, :class => "form-control", :placeholder => "Dollar value greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :dollar_value_lteq, :class => "form-control", :placeholder => "Dollar value less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :position_rank, "Position rank" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :position_rank_gteq, :class => "form-control", :placeholder => "Position rank greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :position_rank_lteq, :class => "form-control", :placeholder => "Position rank less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :overall_rank, "Overall rank" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :overall_rank_gteq, :class => "form-control", :placeholder => "Overall rank greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :overall_rank_lteq, :class => "form-control", :placeholder => "Overall rank less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :source_cont, "Source contains" %>
+    <%= f.text_field :source_cont, :class => "form-control", :placeholder => "Source contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :player_name_cont, "Player name contains" %>
+      <%= f.text_field :player_name_cont, :class => "form-control", :placeholder => "Player name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/rankings" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#rankings_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

@@ -1,6 +1,7 @@
 class HistoricalsController < ApplicationController
   def index
-    @historicals = Historical.page(params[:page]).per(10)
+    @q = Historical.ransack(params[:q])
+    @historicals = @q.result(:distinct => true).includes(:player).page(params[:page]).per(10)
 
     render("historicals/index.html.erb")
   end

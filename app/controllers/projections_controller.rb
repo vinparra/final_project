@@ -1,6 +1,7 @@
 class ProjectionsController < ApplicationController
   def index
-    @projections = Projection.page(params[:page]).per(10)
+    @q = Projection.ransack(params[:q])
+    @projections = @q.result(:distinct => true).includes(:player).page(params[:page]).per(10)
 
     render("projections/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class EligibilitiesController < ApplicationController
   def index
-    @eligibilities = Eligibility.page(params[:page]).per(10)
+    @q = Eligibility.ransack(params[:q])
+    @eligibilities = @q.result(:distinct => true).includes(:player, :position).page(params[:page]).per(10)
 
     render("eligibilities/index.html.erb")
   end
