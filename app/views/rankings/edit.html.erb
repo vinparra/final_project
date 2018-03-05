@@ -1,0 +1,118 @@
+<!-- Validation failure messages -->
+<% if @ranking.errors.any? %>
+  <% @ranking.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Ranking #<%= @ranking.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_ranking/<%= @ranking.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <div class="form-group">
+        <label for="player_id" class="control-label">
+          Player
+        </label>
+
+        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @ranking.player_id %>">
+      </div>
+
+      <!-- Label and input for source -->
+      <div class="form-group">
+        <label for="source" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source" name="source" placeholder="Source" class="form-control" value="<%= @ranking.source %>">
+      </div>
+
+      <!-- Label and input for overall_rank -->
+      <div class="form-group">
+        <label for="overall_rank" class="control-label">
+          Overall rank
+        </label>
+
+        <input type="text" id="overall_rank" name="overall_rank" placeholder="Overall rank" class="form-control" value="<%= @ranking.overall_rank %>">
+      </div>
+
+      <!-- Label and input for position_rank -->
+      <div class="form-group">
+        <label for="position_rank" class="control-label">
+          Position rank
+        </label>
+
+        <input type="text" id="position_rank" name="position_rank" placeholder="Position rank" class="form-control" value="<%= @ranking.position_rank %>">
+      </div>
+
+      <!-- Label and input for dollar_value -->
+      <div class="form-group">
+        <label for="dollar_value" class="control-label">
+          Dollar value
+        </label>
+
+        <input type="text" id="dollar_value" name="dollar_value" placeholder="Dollar value" class="form-control" value="<%= @ranking.dollar_value %>">
+      </div>
+
+      <!-- Label and input for rank_best -->
+      <div class="form-group">
+        <label for="rank_best" class="control-label">
+          Rank best
+        </label>
+
+        <input type="text" id="rank_best" name="rank_best" placeholder="Rank best" class="form-control" value="<%= @ranking.rank_best %>">
+      </div>
+
+      <!-- Label and input for rank_worst -->
+      <div class="form-group">
+        <label for="rank_worst" class="control-label">
+          Rank worst
+        </label>
+
+        <input type="text" id="rank_worst" name="rank_worst" placeholder="Rank worst" class="form-control" value="<%= @ranking.rank_worst %>">
+      </div>
+
+      <!-- Label and input for rank_average -->
+      <div class="form-group">
+        <label for="rank_average" class="control-label">
+          Rank average
+        </label>
+
+        <input type="text" id="rank_average" name="rank_average" placeholder="Rank average" class="form-control" value="<%= @ranking.rank_average %>">
+      </div>
+
+      <!-- Label and input for rank_std_dev -->
+      <div class="form-group">
+        <label for="rank_std_dev" class="control-label">
+          Rank std dev
+        </label>
+
+        <input type="text" id="rank_std_dev" name="rank_std_dev" placeholder="Rank std dev" class="form-control" value="<%= @ranking.rank_std_dev %>">
+      </div>
+
+      <!-- Label and input for avg_draft_position -->
+      <div class="form-group">
+        <label for="avg_draft_position" class="control-label">
+          Avg draft position
+        </label>
+
+        <input type="text" id="avg_draft_position" name="avg_draft_position" placeholder="Avg draft position" class="form-control" value="<%= @ranking.avg_draft_position %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Ranking
+      </button>
+      or
+      <a href="/rankings/<%= @ranking.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
