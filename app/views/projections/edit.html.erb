@@ -1,0 +1,163 @@
+<!-- Validation failure messages -->
+<% if @projection.errors.any? %>
+  <% @projection.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Projection #<%= @projection.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_projection/<%= @projection.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <div class="form-group">
+        <label for="player_id" class="control-label">
+          Player
+        </label>
+
+        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @projection.player_id %>">
+      </div>
+
+      <!-- Label and input for source -->
+      <div class="form-group">
+        <label for="source" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source" name="source" placeholder="Source" class="form-control" value="<%= @projection.source %>">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @projection.year %>">
+      </div>
+
+      <!-- Label and input for ab -->
+      <div class="form-group">
+        <label for="ab" class="control-label">
+          Ab
+        </label>
+
+        <input type="text" id="ab" name="ab" placeholder="Ab" class="form-control" value="<%= @projection.ab %>">
+      </div>
+
+      <!-- Label and input for hr -->
+      <div class="form-group">
+        <label for="hr" class="control-label">
+          Hr
+        </label>
+
+        <input type="text" id="hr" name="hr" placeholder="Hr" class="form-control" value="<%= @projection.hr %>">
+      </div>
+
+      <!-- Label and input for rbi -->
+      <div class="form-group">
+        <label for="rbi" class="control-label">
+          Rbi
+        </label>
+
+        <input type="text" id="rbi" name="rbi" placeholder="Rbi" class="form-control" value="<%= @projection.rbi %>">
+      </div>
+
+      <!-- Label and input for sb -->
+      <div class="form-group">
+        <label for="sb" class="control-label">
+          Sb
+        </label>
+
+        <input type="text" id="sb" name="sb" placeholder="Sb" class="form-control" value="<%= @projection.sb %>">
+      </div>
+
+      <!-- Label and input for runs -->
+      <div class="form-group">
+        <label for="runs" class="control-label">
+          Runs
+        </label>
+
+        <input type="text" id="runs" name="runs" placeholder="Runs" class="form-control" value="<%= @projection.runs %>">
+      </div>
+
+      <!-- Label and input for avg -->
+      <div class="form-group">
+        <label for="avg" class="control-label">
+          Avg
+        </label>
+
+        <input type="text" id="avg" name="avg" placeholder="Avg" class="form-control" value="<%= @projection.avg %>">
+      </div>
+
+      <!-- Label and input for innings_pitched -->
+      <div class="form-group">
+        <label for="innings_pitched" class="control-label">
+          Innings pitched
+        </label>
+
+        <input type="text" id="innings_pitched" name="innings_pitched" placeholder="Innings pitched" class="form-control" value="<%= @projection.innings_pitched %>">
+      </div>
+
+      <!-- Label and input for wins -->
+      <div class="form-group">
+        <label for="wins" class="control-label">
+          Wins
+        </label>
+
+        <input type="text" id="wins" name="wins" placeholder="Wins" class="form-control" value="<%= @projection.wins %>">
+      </div>
+
+      <!-- Label and input for saves -->
+      <div class="form-group">
+        <label for="saves" class="control-label">
+          Saves
+        </label>
+
+        <input type="text" id="saves" name="saves" placeholder="Saves" class="form-control" value="<%= @projection.saves %>">
+      </div>
+
+      <!-- Label and input for era -->
+      <div class="form-group">
+        <label for="era" class="control-label">
+          Era
+        </label>
+
+        <input type="text" id="era" name="era" placeholder="Era" class="form-control" value="<%= @projection.era %>">
+      </div>
+
+      <!-- Label and input for whip -->
+      <div class="form-group">
+        <label for="whip" class="control-label">
+          Whip
+        </label>
+
+        <input type="text" id="whip" name="whip" placeholder="Whip" class="form-control" value="<%= @projection.whip %>">
+      </div>
+
+      <!-- Label and input for strikeouts -->
+      <div class="form-group">
+        <label for="strikeouts" class="control-label">
+          Strikeouts
+        </label>
+
+        <input type="text" id="strikeouts" name="strikeouts" placeholder="Strikeouts" class="form-control" value="<%= @projection.strikeouts %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Projection
+      </button>
+      or
+      <a href="/projections/<%= @projection.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

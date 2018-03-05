@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Projection resource:
+  # CREATE
+  get "/projections/new", :controller => "projections", :action => "new"
+  post "/create_projection", :controller => "projections", :action => "create"
+
+  # READ
+  get "/projections", :controller => "projections", :action => "index"
+  get "/projections/:id", :controller => "projections", :action => "show"
+
+  # UPDATE
+  get "/projections/:id/edit", :controller => "projections", :action => "edit"
+  post "/update_projection/:id", :controller => "projections", :action => "update"
+
+  # DELETE
+  get "/delete_projection/:id", :controller => "projections", :action => "destroy"
+  #------------------------------
+
   # Routes for the Ranking resource:
   # CREATE
   get "/rankings/new", :controller => "rankings", :action => "new"

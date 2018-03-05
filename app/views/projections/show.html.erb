@@ -1,0 +1,67 @@
+<div class="page-header">
+  <h3>Projection #<%= @projection.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Player</dt>
+      <dd><%= @projection.player_id %></dd>
+
+      <dt>Source</dt>
+      <dd><%= @projection.source %></dd>
+
+      <dt>Year</dt>
+      <dd><%= @projection.year %></dd>
+
+      <dt>Ab</dt>
+      <dd><%= @projection.ab %></dd>
+
+      <dt>Hr</dt>
+      <dd><%= @projection.hr %></dd>
+
+      <dt>Rbi</dt>
+      <dd><%= @projection.rbi %></dd>
+
+      <dt>Sb</dt>
+      <dd><%= @projection.sb %></dd>
+
+      <dt>Runs</dt>
+      <dd><%= @projection.runs %></dd>
+
+      <dt>Avg</dt>
+      <dd><%= @projection.avg %></dd>
+
+      <dt>Innings pitched</dt>
+      <dd><%= @projection.innings_pitched %></dd>
+
+      <dt>Wins</dt>
+      <dd><%= @projection.wins %></dd>
+
+      <dt>Saves</dt>
+      <dd><%= @projection.saves %></dd>
+
+      <dt>Era</dt>
+      <dd><%= @projection.era %></dd>
+
+      <dt>Whip</dt>
+      <dd><%= @projection.whip %></dd>
+
+      <dt>Strikeouts</dt>
+      <dd><%= @projection.strikeouts %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/projections" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/projections/<%= @projection.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_projection/<%= @projection.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

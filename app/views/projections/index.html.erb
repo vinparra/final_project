@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>
+    Projections
+    <a href="/projections/new" class="btn btn-lg btn-success">New Projection</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Player</th>
+        <th>Source</th>
+        <th>Year</th>
+        <th>Ab</th>
+        <th>Hr</th>
+        <th>Rbi</th>
+        <th>Sb</th>
+        <th>Runs</th>
+        <th>Avg</th>
+        <th>Innings pitched</th>
+        <th>Wins</th>
+        <th>Saves</th>
+        <th>Era</th>
+        <th>Whip</th>
+        <th>Strikeouts</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @projections.each do |projection| %>
+      <tr>
+        <td><%= projection.player_id %></td>
+        <td><%= projection.source %></td>
+        <td><%= projection.year %></td>
+        <td><%= projection.ab %></td>
+        <td><%= projection.hr %></td>
+        <td><%= projection.rbi %></td>
+        <td><%= projection.sb %></td>
+        <td><%= projection.runs %></td>
+        <td><%= projection.avg %></td>
+        <td><%= projection.innings_pitched %></td>
+        <td><%= projection.wins %></td>
+        <td><%= projection.saves %></td>
+        <td><%= projection.era %></td>
+        <td><%= projection.whip %></td>
+        <td><%= projection.strikeouts %></td>
+        <td>
+          <a href="/projections/<%= projection.id %>" class="btn btn-primary">Show</a>
+          <a href="/projections/<%= projection.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_projection/<%= projection.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
