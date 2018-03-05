@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
 
   def index
     @q = Player.ransack(params[:q])
-    @players = @q.result(:distinct => true).includes(:eligibilities, :historicals, :projections, :rankings, :notes, :user, :positions).page(params[:page]).per(10)
+    @players = @q.result(:distinct => true).includes(:eligibilities, :historicals, :projections, :rankings, :notes, :user, :team, :positions).page(params[:page]).per(10)
 
     render("players/index.html.erb")
   end
