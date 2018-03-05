@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @position.errors.any? %>
+  <% @position.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Position</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_position" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @position.title %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Position
+      </button>
+      or
+      <a href="/positions">Cancel</a>
+    </form>
+  </div>
+</div>
