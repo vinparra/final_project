@@ -16,7 +16,7 @@
 
       <% @eligibilities.each do |eligibility| %>
       <tr>
-        <td><%= eligibility.player_id %></td>
+        <td><%= eligibility.player.name %></td>
         <td><%= eligibility.position_id %></td>
         <td>
           <a href="/eligibilities/<%= eligibility.id %>" class="btn btn-primary">Show</a>
