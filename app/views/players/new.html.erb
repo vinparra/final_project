@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @player.errors.any? %>
+  <% @player.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Player</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_player" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @player.name %>">
+      </div>
+
+      <!-- Label and input for team_id -->
+      <div class="form-group">
+        <label for="team_id" class="control-label">
+          Team
+        </label>
+
+        <input type="text" id="team_id" name="team_id" placeholder="Team" class="form-control" value="<%= @player.team_id %>">
+      </div>
+
+      <!-- Label and input for position_id -->
+      <div class="form-group">
+        <label for="position_id" class="control-label">
+          Position
+        </label>
+
+        <input type="text" id="position_id" name="position_id" placeholder="Position" class="form-control" value="<%= @player.position_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @player.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Player
+      </button>
+      or
+      <a href="/players">Cancel</a>
+    </form>
+  </div>
+</div>
