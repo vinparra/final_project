@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Historical resource:
+  # CREATE
+  get "/historicals/new", :controller => "historicals", :action => "new"
+  post "/create_historical", :controller => "historicals", :action => "create"
+
+  # READ
+  get "/historicals", :controller => "historicals", :action => "index"
+  get "/historicals/:id", :controller => "historicals", :action => "show"
+
+  # UPDATE
+  get "/historicals/:id/edit", :controller => "historicals", :action => "edit"
+  post "/update_historical/:id", :controller => "historicals", :action => "update"
+
+  # DELETE
+  get "/delete_historical/:id", :controller => "historicals", :action => "destroy"
+  #------------------------------
+
   # Routes for the Team resource:
   # CREATE
   get "/teams/new", :controller => "teams", :action => "new"

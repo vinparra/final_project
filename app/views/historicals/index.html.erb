@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>
+    Historicals
+    <a href="/historicals/new" class="btn btn-lg btn-success">New Historical</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Player</th>
+        <th>Source</th>
+        <th>Year</th>
+        <th>Ab</th>
+        <th>Hr</th>
+        <th>Rbi</th>
+        <th>Sb</th>
+        <th>Runs</th>
+        <th>Avg</th>
+        <th>Innings pitched</th>
+        <th>Wins</th>
+        <th>Saves</th>
+        <th>Era</th>
+        <th>Whip</th>
+        <th>Strikeouts</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @historicals.each do |historical| %>
+      <tr>
+        <td><%= historical.player_id %></td>
+        <td><%= historical.source %></td>
+        <td><%= historical.year %></td>
+        <td><%= historical.ab %></td>
+        <td><%= historical.hr %></td>
+        <td><%= historical.rbi %></td>
+        <td><%= historical.sb %></td>
+        <td><%= historical.runs %></td>
+        <td><%= historical.avg %></td>
+        <td><%= historical.innings_pitched %></td>
+        <td><%= historical.wins %></td>
+        <td><%= historical.saves %></td>
+        <td><%= historical.era %></td>
+        <td><%= historical.whip %></td>
+        <td><%= historical.strikeouts %></td>
+        <td>
+          <a href="/historicals/<%= historical.id %>" class="btn btn-primary">Show</a>
+          <a href="/historicals/<%= historical.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_historical/<%= historical.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

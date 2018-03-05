@@ -1,0 +1,67 @@
+<div class="page-header">
+  <h3>Historical #<%= @historical.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Player</dt>
+      <dd><%= @historical.player_id %></dd>
+
+      <dt>Source</dt>
+      <dd><%= @historical.source %></dd>
+
+      <dt>Year</dt>
+      <dd><%= @historical.year %></dd>
+
+      <dt>Ab</dt>
+      <dd><%= @historical.ab %></dd>
+
+      <dt>Hr</dt>
+      <dd><%= @historical.hr %></dd>
+
+      <dt>Rbi</dt>
+      <dd><%= @historical.rbi %></dd>
+
+      <dt>Sb</dt>
+      <dd><%= @historical.sb %></dd>
+
+      <dt>Runs</dt>
+      <dd><%= @historical.runs %></dd>
+
+      <dt>Avg</dt>
+      <dd><%= @historical.avg %></dd>
+
+      <dt>Innings pitched</dt>
+      <dd><%= @historical.innings_pitched %></dd>
+
+      <dt>Wins</dt>
+      <dd><%= @historical.wins %></dd>
+
+      <dt>Saves</dt>
+      <dd><%= @historical.saves %></dd>
+
+      <dt>Era</dt>
+      <dd><%= @historical.era %></dd>
+
+      <dt>Whip</dt>
+      <dd><%= @historical.whip %></dd>
+
+      <dt>Strikeouts</dt>
+      <dd><%= @historical.strikeouts %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/historicals" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/historicals/<%= @historical.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_historical/<%= @historical.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
