@@ -1,4 +1,6 @@
 ActiveAdmin.register Historical do
+
+ permit_params :player_id, :source, :year, :ab, :hr, :rbi, :sb, :runs, :avg, :innings_pitched, :wins, :saves, :era, :whip, :strikeouts
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
