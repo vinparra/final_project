@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  has_many   :projections,
+             :dependent => :destroy
+
   has_many   :historicals,
              :dependent => :destroy
 
