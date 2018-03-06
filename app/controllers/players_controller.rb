@@ -11,13 +11,14 @@ class PlayersController < ApplicationController
 
   def index
     @q = Player.ransack(params[:q])
-    @players = @q.result(:distinct => true).includes(:eligibilities, :historicals, :projections, :rankings, :notes, :user, :positions).page(params[:page]).per(10)
+    @players = @q.result(:distinct => true).includes(:eligibilities, :historicals, :projections, :rankings, :notes, :tags, :user, :team, :positions).page(params[:page]).per(10)
 
     render("players/index.html.erb")
   end
 
   def show
-    @note = Note.new
+    @tagging = Tagging.new
+    @comment = Comment.new
     @ranking = Ranking.new
     @projection = Projection.new
     @historical = Historical.new
@@ -38,8 +39,9 @@ class PlayersController < ApplicationController
 
     @player.name = params[:name]
     @player.team_id = params[:team_id]
-    @player.position_id = params[:position_id]
     @player.user_id = params[:user_id]
+    @player.my_rank = params[:my_rank]
+    @player.injury_status = params[:injury_status]
 
     save_status = @player.save
 
@@ -68,8 +70,9 @@ class PlayersController < ApplicationController
 
     @player.name = params[:name]
     @player.team_id = params[:team_id]
-    @player.position_id = params[:position_id]
     @player.user_id = params[:user_id]
+    @player.my_rank = params[:my_rank]
+    @player.injury_status = params[:injury_status]
 
     save_status = @player.save
 

@@ -1,6 +1,6 @@
-ActiveAdmin.register Note do
+ActiveAdmin.register Tag do
 
- permit_params :player_id, :comment
+ permit_params :tag
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
