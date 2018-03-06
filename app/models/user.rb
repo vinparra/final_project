@@ -1,10 +1,18 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :ranks,
+             :dependent => :destroy
+
   has_many   :players,
+             :foreign_key => "owner_id",
              :dependent => :destroy
 
   # Indirect associations
+
+  has_many   :ranked_players,
+             :through => :ranks,
+             :source => :player
 
   # Validations
 

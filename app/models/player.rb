@@ -3,10 +3,13 @@ class Player < ApplicationRecord
 
   belongs_to :team
 
-  belongs_to :user
+  belongs_to :user,
+             :foreign_key => "owner_id"
 
-  has_many   :tags,
-             :class_name => "Tagging",
+  has_many   :ranks,
+             :dependent => :destroy
+
+  has_many   :taggings,
              :dependent => :destroy
 
   has_many   :notes,
@@ -27,13 +30,19 @@ class Player < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :tags,
+             :through => :taggings,
+             :source => :tag
+
+  has_many   :user_rankers,
+             :through => :ranks,
+             :source => :user
+
   has_many   :positions,
              :through => :eligibilities,
              :source => :position
 
   # Validations
-
-  validates :my_rank, :numericality => { :greater_than => 0 }
 
   validates :name, :presence => true
 
