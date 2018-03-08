@@ -19,18 +19,6 @@
   </div>
 
 <div class="form-group">
-  <%= f.label :my_rank, "My rank" %>
-  <div class="row">
-    <div class='col-md-6 mb-1'>
-      <%= f.text_field :my_rank_gteq, :class => "form-control", :placeholder => "My rank greater than or equal to" %>
-    </div>
-    <div class='col-md-6'>
-      <%= f.text_field :my_rank_lteq, :class => "form-control", :placeholder => "My rank less than or equal to" %>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -85,6 +73,16 @@
       <%= f.text_field :positions_title_cont, :class => "form-control", :placeholder => "Position title contains" %>
     </div>
 
+<div class="form-group">
+      <%= f.label :user_rankers_email_cont, "User email contains" %>
+      <%= f.text_field :user_rankers_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :tags_tag_cont, "Tag tag contains" %>
+      <%= f.text_field :tags_tag_cont, :class => "form-control", :placeholder => "Tag tag contains" %>
+    </div>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/players" class="btn btn-default btn-block mb-1">Clear filters</a>
@@ -101,8 +99,7 @@
       <tr>
         <th>Name</th>
         <th>Team</th>
-        <th>User</th>
-        <th>My rank</th>
+        <th>Owner</th>
         <th>Injury status</th>
         <th>Actions</th>
       </tr>
@@ -124,7 +121,6 @@
             </a>
           <% end %>
         </td>
-        <td><%= player.my_rank %></td>
         <td><%= player.injury_status %></td>
         <td>
           <a href="/players/<%= player.id %>" class="btn btn-primary">Show</a>

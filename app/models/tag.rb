@@ -6,6 +6,10 @@ class Tag < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :players,
+             :through => :taggings,
+             :source => :player
+
   # Validations
 
 end

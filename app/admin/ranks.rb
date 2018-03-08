@@ -1,6 +1,6 @@
-ActiveAdmin.register Player do
+ActiveAdmin.register Rank do
 
- permit_params :name, :team_id, :owner_id, :injury_status
+ permit_params :user_id, :player_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

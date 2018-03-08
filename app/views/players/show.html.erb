@@ -17,17 +17,14 @@
         <% end %>
       </dd>
 
-      <dt>User</dt>
+      <dt>Owner</dt>
       <dd>
         <% if @player.user.present? %>
-          <a href="/users/<%= @player.user_id %>">
+          <a href="/users/<%= @player.owner_id %>">
             <%= @player.user.email %>
           </a>
         <% end %>
       </dd>
-
-      <dt>My rank</dt>
-      <dd><%= @player.my_rank %></dd>
 
       <dt>Injury status</dt>
       <dd><%= @player.injury_status %></dd>
@@ -698,16 +695,16 @@
   </div>
 </div>
 
-<!-- A Player has many tags -->
+<!-- A Player has many taggings -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Tags
+        Taggings
       </li>
 
-      <% @player.tags.each do |tagging| %>
+      <% @player.taggings.each do |tagging| %>
         <li class="list-group-item">
           <a href="/taggings/<%= tagging.id %>">
             <%= tagging.player_id %>
@@ -752,6 +749,60 @@
   </div>
 </div>
 
+<!-- A Player has many ranks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Ranks
+      </li>
+
+      <% @player.ranks.each do |rank| %>
+        <li class="list-group-item">
+          <a href="/ranks/<%= rank.id %>">
+            <%= rank.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/ranks/<%= rank.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/ranks/<%= rank.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_rank/<%= rank.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_rank" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for player_id -->
+      <input type="hidden" name="player_id" value="<%= @player.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Rank
+      </button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <!-- A Player has many positions -->
 
 <div class="row">
@@ -774,6 +825,68 @@
               <i class="fa fa-edit"></i>
             </a>
             <a href="/delete_position/<%= position.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many user_rankers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        User Rankers
+      </li>
+
+      <% @player.user_rankers.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.email %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Player has many tags -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Tags
+      </li>
+
+      <% @player.tags.each do |tag| %>
+        <li class="list-group-item">
+          <a href="/tags/<%= tag.id %>">
+            <%= tag.tag %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/tags/<%= tag.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/tags/<%= tag.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_tag/<%= tag.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
