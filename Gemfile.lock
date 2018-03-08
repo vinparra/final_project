@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/firstdraft/draft_generators.git
-  revision: aba65465c4b9111143c0c801c38035ef20dca364
+  revision: e01917b1608133c48ed81be447b32446eb2eda51
   specs:
     draft_generators (0.0.3)
       devise
@@ -181,7 +181,7 @@ GEM
     pg (0.21.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
-    puma (3.11.2)
+    puma (3.11.3)
     rack (2.0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
