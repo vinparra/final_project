@@ -72,17 +72,8 @@
       <!-- Label and input for team_id -->
       <input type="hidden" name="team_id" value="<%= @team.id %>">
 
-      <!-- Label and input for user_id -->
-      <input type="hidden" name="user_id" value="<%= current_user.id %>">
-
-      <!-- Label and input for my_rank -->
-      <div class="form-group">
-        <label for="my_rank" class="control-label">
-          My rank
-        </label>
-
-        <input type="text" id="my_rank" name="my_rank" placeholder="My rank" class="form-control" value="">
-      </div>
+      <!-- Label and input for owner_id -->
+      <input type="hidden" name="owner_id" value="<%= current_user.id %>">
 
       <!-- Label and input for injury_status -->
       <div class="form-group">
